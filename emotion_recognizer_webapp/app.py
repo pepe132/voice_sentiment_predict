@@ -16,7 +16,7 @@ def hello():
 def record():
 	classifier.record_audio()
 	predicted_emotion_array = classifier.classify_audio()
-	return render_template('result.html', names = predicted_emotion_array[0]);
+	return render_template('result.html', names = predicted_emotion_array[0])
 
 if __name__ == "__main__":
     app.run()

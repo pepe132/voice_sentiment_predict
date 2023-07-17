@@ -1,4 +1,4 @@
 class Constant:
-	MODEL_PATH = '/home/nikhil/Downloads/saved_models/Emotion_Voice_Detection_Model.h5'
-	LABELS_PATH = '/home/nikhil/Downloads/label_classes.npy'
-	INPUT_AUDIO_PATH = '/home/nikhil/personal/emotion_app/live_audio.wav'
+	MODEL_PATH = 'C:/Users/joseg/OneDrive/Documentos/todo/klover/emotion-recognition/saved_models/Emotion_Voice_Detection_Model.h5'
+	LABELS_PATH = 'C:/Users/joseg/OneDrive/Documentos/todo/klover/emotion-recognition/label_classes.npy'
+	INPUT_AUDIO_PATH = 'C:/Users/joseg/OneDrive/Documentos/todo/klover/emotion-recognition/emotion_recognizer_webapp/Grabación.wav'

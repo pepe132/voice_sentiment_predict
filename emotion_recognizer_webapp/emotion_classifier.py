@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from keras import backend as K
 from keras.models import load_model
-from keras.optimizers import rmsprop
+from keras.optimizers import RMSprop
 import constants
 
 constant = constants.Constant
@@ -21,7 +21,7 @@ class EmotionClassifier():
 		CHANNELS = 2 
 		RATE = 44100 #sample rate
 		RECORD_SECONDS = 5
-		WAVE_OUTPUT_FILENAME = "live_audio.wav"
+		WAVE_OUTPUT_FILENAME = "Grabación.wav"
 		p = pyaudio.PyAudio()
 		stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
 
@@ -46,7 +46,7 @@ class EmotionClassifier():
 		wf.writeframes(b''.join(frames))
 		wf.close()
 
-		return True;
+		return True
 
 	def classify_audio(self):
 		X, sample_rate = librosa.load(constant.INPUT_AUDIO_PATH, res_type='kaiser_fast',duration=3,sr=22050*2,offset=0.5)
@@ -68,7 +68,7 @@ class EmotionClassifier():
 	def load_model(self):
 		K.clear_session()
 		model = load_model(constant.MODEL_PATH)
-		opt = rmsprop(lr=0.0001, decay=1e-6)
+		opt = RMSprop(learning_rate=0.0001, rho=1e-6)
 		model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 		return model
 		
